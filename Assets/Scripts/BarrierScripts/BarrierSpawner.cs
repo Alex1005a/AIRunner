@@ -13,7 +13,7 @@ public class BarrierSpawner : MonoBehaviour
 
     private void Start()
     {        
-        FindObjectOfType<Player>().EpisodeBeginEvent.AddListener(DestroyAllBarriers);
+        FindObjectOfType<Player>().EpisodeBeginEvent += DestroyAllBarriers;
         StartSpawnCoroutine();
     }
 

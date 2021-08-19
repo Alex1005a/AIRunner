@@ -12,7 +12,13 @@ public class Ammo : MonoBehaviour
         WithBigBarrier
     }
 
-    public readonly UnityEvent<Collided> DestroyEvent = new UnityEvent<Collided>();
+    private UnityEvent<Collided> _destroyEvent = new UnityEvent<Collided>();
+
+    public event UnityAction<Collided> DestroyEvent
+    {
+        add => _destroyEvent.AddListener(value);
+        remove => _destroyEvent.RemoveListener(value);
+    }
 
     [SerializeField] private float _lifetime;
     private AmmoMovement _movement;
@@ -32,12 +38,12 @@ public class Ammo : MonoBehaviour
     {
         if (collision.GetComponent<BigBarrier>() != null)
         {
-            DestroyEvent?.Invoke(Collided.WithBigBarrier);
+            _destroyEvent?.Invoke(Collided.WithBigBarrier);
             Destroy(gameObject);
         }
         else if (collision.GetComponent<Barrier>() != null)
         {
-            DestroyEvent?.Invoke(Collided.WithBarrier);
+            _destroyEvent?.Invoke(Collided.WithBarrier);
             Destroy(gameObject);
         }
     }
@@ -46,7 +52,7 @@ public class Ammo : MonoBehaviour
     {
         yield return new WaitForSeconds(_lifetime);
 
-        DestroyEvent?.Invoke(Collided.None);
+        _destroyEvent?.Invoke(Collided.None);
         Destroy(gameObject);
     }
 }

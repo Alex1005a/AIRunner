@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Player>().EpisodeBeginEvent.AddListener(StopJump);
+        GetComponent<Player>().EpisodeBeginEvent += StopJump;
         StartPosition = transform.position;
         _isJumped = false;
     }

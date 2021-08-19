@@ -15,7 +15,7 @@ public class PlayerShotter : MonoBehaviour
         {
             readyToShoot = false;
             var ammo = Instantiate(_ammoPrefab, transform.position, Quaternion.identity);
-            ammo.GetComponent<Ammo>().DestroyEvent.AddListener(collideAction);
+            ammo.GetComponent<Ammo>().DestroyEvent += collideAction;
             StartCoroutine(GetReadyToShoot());
         }
     }

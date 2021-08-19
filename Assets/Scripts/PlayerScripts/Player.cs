@@ -10,7 +10,13 @@ using static Ammo;
 [RequireComponent(typeof(PlayerShotter))]
 public class Player : Agent
 {
-    public readonly UnityEvent EpisodeBeginEvent = new UnityEvent();
+    public readonly UnityEvent _episodeBeginEvent = new UnityEvent();
+
+    public event UnityAction EpisodeBeginEvent
+    {
+        add => _episodeBeginEvent.AddListener(value);
+        remove => _episodeBeginEvent.RemoveListener(value);
+    }
 
     [SerializeField] private LayerMask _barrierMask;
     private PlayerMovement _movement;
@@ -32,7 +38,7 @@ public class Player : Agent
 
     public override void OnEpisodeBegin()
     {
-        EpisodeBeginEvent?.Invoke();
+        _episodeBeginEvent?.Invoke();
     }
 
     public override void CollectObservations(VectorSensor sensor)
