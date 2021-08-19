@@ -552,7 +552,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 3
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: Player
   TeamId: 0
   m_UseChildSensors: 1
@@ -616,9 +616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barrierSpawnPosition: {x: 13, y: -2.096, z: 0}
-  _barrierPrefab: {fileID: 8283418976137763842, guid: 5292e0644cbc4b04bbc9048534b87a4b, type: 3}
+  _barrierPrefab: {fileID: 8283418976137763849, guid: 5292e0644cbc4b04bbc9048534b87a4b, type: 3}
   _bigBarrierSpawnPosition: {x: 13, y: -0.127, z: 0}
-  _bigBarrierPrefab: {fileID: 8342898642754870695, guid: 963981bbe4e0d064f93e291af49b0a29, type: 3}
+  _bigBarrierPrefab: {fileID: 8342898642754870692, guid: 963981bbe4e0d064f93e291af49b0a29, type: 3}
   _minWaitTime: 1.5
   _maxWaitTime: 7
 --- !u!4 &1329358012

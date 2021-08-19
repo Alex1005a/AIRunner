@@ -5,9 +5,9 @@ using UnityEngine;
 public class BarrierSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3 _barrierSpawnPosition;
-    [SerializeField] private GameObject _barrierPrefab;
+    [SerializeField] private Barrier _barrier;
     [SerializeField] private Vector3 _bigBarrierSpawnPosition;
-    [SerializeField] private GameObject _bigBarrierPrefab;
+    [SerializeField] private BigBarrier _bigBarrier;
     [SerializeField] private float _minWaitTime;
     [SerializeField] private float _maxWaitTime;
 
@@ -45,7 +45,7 @@ public class BarrierSpawner : MonoBehaviour
 
     private GameObject RandomInstantiate()
     {
-        if(Random.Range(1, 6) == 1) return Instantiate(_bigBarrierPrefab, _bigBarrierSpawnPosition, Quaternion.identity);
-        else return Instantiate(_barrierPrefab, _barrierSpawnPosition, Quaternion.identity);
+        if (Random.Range(1, 6) == 1) return Instantiate(_bigBarrier, _bigBarrierSpawnPosition, Quaternion.identity).gameObject;
+        else return Instantiate(_barrier, _barrierSpawnPosition, Quaternion.identity).gameObject;
     }
 }
